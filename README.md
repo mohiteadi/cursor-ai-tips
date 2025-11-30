@@ -27,6 +27,33 @@ Cursor is not just VS Code with AI - it's a **fork** that integrates LLMs direct
 
 ---
 
+## 🆕 What's New in Cursor 2.0/2.1
+
+### Plan Mode (2.1)
+Strategic thinking before coding. AI analyzes, plans, asks clarifying questions - then executes.
+
+```
+"Plan Mode forces 'measure twice, cut once' philosophy"
+```
+
+### Instant Grep (2.1)
+Millisecond codebase search. No more context hallucinations - agent verifies every reference instantly.
+
+### Multi-Agent Interface (2.0)
+Run parallel agents using git worktrees:
+- Agent 1: Refactoring component
+- Agent 2: Writing tests
+- No file lock conflicts
+
+### Composer Improvements
+- 4x faster than general LLMs for diff-edit loops
+- Codebase-wide semantic search
+- Implicit checkpoints for instant rollback
+
+[→ Full 2.0/2.1 Guide](tips/cursor-2x-features.md)
+
+---
+
 ## ⌨️ Keyboard Shortcuts
 
 ### The Command Hierarchy
@@ -181,28 +208,64 @@ You do not be lazy.
 
 ---
 
-## 🧠 Model Selection
+## 🧠 Model Selection (2025 Update)
 
-### Available Models
+### Latest Models Comparison
 
-| Model | Best For | Speed | Cost |
-|-------|----------|-------|------|
-| **Claude 3.5 Sonnet** | Complex reasoning, architecture | Medium | $$ |
-| **GPT-4o** | Simple logic, text manipulation | Fast | $$ |
-| **o1-preview** | Novel algorithms, hard bugs | Slow | $$$ |
-| **Cursor-small** | Inline edits (Cmd+K) | Very Fast | $ |
+| Model | Best For | Context | Speed | Cost |
+|-------|----------|---------|-------|------|
+| **Claude 4.5 Opus** | Planning, reliability, backend | 200K | Medium | $$$ |
+| **GPT-5.1 High Max** | Architecture, balanced reasoning | 128K | Medium | $$ |
+| **Gemini 3 Pro** | Visuals, massive context, frontend | **2M** | Fast | $ |
+| **Kimi k2 Thinking** | Cost-effective reasoning, open-source | 256K | Medium | ¢ |
+| **Grok 4.1** | Personality, real-time data, vibe coding | 256K | Fast | $$ |
 
-### Cost Optimization Strategy
+### Model Personalities
+
+| Model | "Vibe" |
+|-------|--------|
+| Claude 4.5 | Strict Senior Developer |
+| GPT-5.1 | Pragmatic Architect |
+| Gemini 3 | Creative Designer |
+| Kimi k2 | Efficient Researcher |
+| Grok 4.1 | Witty Collaborator |
+
+### The Plan-Act Pattern
+
+```
+1. PLAN (Claude 4.5 / GPT-5.1 High):
+   "Analyze request. Don't code. Create plan.md"
+   
+2. CRITIQUE (Gemini 3 Pro - optional):
+   "Review plan.md for efficiency gaps"
+   
+3. EXECUTE (Composer / GPT-5.1):
+   "Implement Step 1 of plan.md. Run tests."
+```
+
+### Thinking Models (Kimi k2, Grok 4.1)
+
+Don't over-prompt! Give high-level goals:
+
+```
+❌ "Write function that does X, Y, Z step by step"
+✅ "Goal: Implement resilient payment processor. 
+    Reason about Stripe failure modes. Then output code."
+```
+
+### Cost Optimization
 
 ```
 Pro Plan ($20/mo):
-├── 500 fast requests (premium models)
-└── Unlimited slow requests (deprioritized)
+├── Credit pool system (fast vs slow)
+├── "Auto" mode switches models by task complexity
+└── Set per-user spending limits (Enterprise)
 
-Recommendation:
-├── Daily work → Pro Plan
-├── Heavy refactoring → BYOK API key
-└── Hard bugs → o1-preview (BYOK)
+Strategy:
+├── Daily work → Pro Plan (Auto mode)
+├── Heavy refactoring → BYOK Claude 4.5
+├── Budget tasks → Kimi k2 via OpenRouter
+└── Hard bugs → GPT-5.1 High Max
 ```
 
 > **Warning**: Don't switch models mid-conversation. It breaks the "train of thought."
@@ -272,17 +335,27 @@ Tips from r/cursor power users:
 
 ---
 
-## ⚔️ Cursor vs Competitors
+## ⚔️ Cursor vs Competitors (2025)
 
-| Feature | Cursor | Windsurf | GitHub Copilot |
-|---------|--------|----------|----------------|
-| **Architecture** | Fork (Native AI) | Fork (Native AI) | Extension |
-| **Multi-File Edits** | Composer ⭐ | Cascade | Limited |
-| **Model Choice** | Claude/GPT/All | Proprietary | OpenAI only |
-| **Context** | Manual @ + Index | Auto-context | Open files only |
-| **Price** | $20/mo | $15/mo | $10/mo |
+| Feature | Cursor 2.1 | Google Antigravity | Windsurf | GitHub Copilot |
+|---------|------------|-------------------|----------|----------------|
+| **Philosophy** | Augmentation | Full Autonomy | Augmentation | Assistance |
+| **Architecture** | Fork (Native) | New IDE | Fork (Native) | Extension |
+| **Multi-File** | Composer ⭐ | Agents | Cascade | Limited |
+| **Model Choice** | All models | Gemini only | Proprietary | OpenAI only |
+| **Special** | Plan Mode, Instant Grep | Mission Control, Artifacts | Auto-context | Enterprise SSO |
+| **Price** | $20/mo | Free Preview | $15/mo | $10/mo |
 
-**Verdict**: Cursor wins on Composer and model flexibility. Windsurf wins on auto-context. Copilot is cheapest but limited.
+### Cursor vs Google Antigravity
+
+| Aspect | Cursor | Antigravity |
+|--------|--------|-------------|
+| **Control** | Developer is pilot | Developer is mission controller |
+| **Verification** | Git diffs, code review | Artifacts (screenshots, logs) |
+| **Best For** | Precision, existing codebases | Greenfield, rapid prototyping |
+| **Lock-in** | Model agnostic | Google ecosystem |
+
+**Verdict**: Cursor for **control and precision**. Antigravity for **full automation experiments**. Windsurf for **auto-context**. Copilot for **enterprise compliance**.
 
 [→ Full Comparison](tips/vs-competitors.md)
 
