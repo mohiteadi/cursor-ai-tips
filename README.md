@@ -10,7 +10,7 @@
 
 *Keyboard shortcuts, Composer workflows, .cursorrules examples, and Reddit community wisdom*
 
-[Shortcuts](#-keyboard-shortcuts) • [Composer](#-composer-mode) • [Context](#-context-management) • [Rules](#-cursorrules) • [Models](#-model-selection) • [Reddit Tips](#-reddit-community-wisdom)
+[Shortcuts](#-keyboard-shortcuts) • [Composer](#-composer-mode) • [Context](#-context-management) • [Rules](#-cursorrules) • [Models](#-model-selection) • [MCP](#-mcp-integration) • [Troubleshooting](#-troubleshooting) • [Reddit Tips](#-reddit-community-wisdom)
 
 </div>
 
@@ -51,6 +51,35 @@ Run parallel agents using git worktrees:
 - Implicit checkpoints for instant rollback
 
 [→ Full 2.0/2.1 Guide](tips/cursor-2x-features.md)
+
+### ⚠️ Deprecated Features
+
+Some features were removed in 2.0/2.1:
+
+| Removed | Replacement |
+|---------|-------------|
+| Interpreter Mode | Agent + Terminal |
+| @Web, @Definitions | Auto-context |
+| Reapply Button | Checkpoints |
+| .cursorrules | .mdc files |
+| Fast Request Packs | Usage-based pricing |
+
+[→ Full Deprecated Features Guide](tips/deprecated-features.md)
+
+### Lovable + Cursor Workflow
+
+Popular "vibe coding" pattern for rapid prototyping:
+
+```
+1. Lovable → Design UI visually, connect to GitHub
+2. Clone → Pull repo to local
+3. Cursor → Add backend logic, APIs, complex features
+4. Push → Sync back to Lovable
+```
+
+Users report building full SaaS products in 4 days using this hybrid approach.
+
+[→ Full Lovable + Cursor Guide](tips/lovable-cursor-workflow.md)
 
 ---
 
@@ -204,7 +233,7 @@ You output the FULL content of the file every time.
 You do not be lazy.
 ```
 
-[→ Full .cursorrules Guide](tips/cursorrules-guide.md)
+[→ Full .cursorrules Guide](tips/cursorrules-guide.md) | [→ .mdc Examples](tips/mdc-examples.md)
 
 ---
 
@@ -271,6 +300,63 @@ Strategy:
 > **Warning**: Don't switch models mid-conversation. It breaks the "train of thought."
 
 [→ Full Model Guide](tips/model-selection.md)
+
+---
+
+## 🔌 MCP Integration
+
+Model Context Protocol lets Cursor connect to databases, GitHub, and browsers.
+
+### Quick Setup
+
+Create `mcp.json` in project root:
+
+```json
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "${env:DATABASE_URL}"]
+    }
+  }
+}
+```
+
+### Popular Servers
+
+| Server | Use Case |
+|--------|----------|
+| `server-postgres` | Query database schema |
+| `github-mcp-server` | Manage PRs/Issues |
+| `server-puppeteer` | Browser automation |
+
+[→ Full MCP Guide](tips/mcp-integration.md)
+
+---
+
+## 🔧 Troubleshooting
+
+### Quick Fixes
+
+| Problem | Solution |
+|---------|----------|
+| "Connection Failed" | New chat (Cmd+L), disable HTTP/2 |
+| "Stuck Generating" | New Composer (Cmd+N) |
+| Files deleted by Agent | Use checkpoint to restore |
+| Rules ignored | Restart Cursor |
+| High token usage | Set API spending limits |
+
+### The "Single Purpose Composer" Rule
+
+Don't reuse Composer windows. One task = one Composer. Prevents context pollution.
+
+### Always Commit Before Agent
+
+```bash
+git add -A && git commit -m "checkpoint"
+```
+
+[→ Full Troubleshooting Guide](tips/troubleshooting.md)
 
 ---
 
@@ -407,6 +493,6 @@ Found a tip? Share it!
 
 Made with 💙 by [Murat Aslan](https://github.com/murataslan1)
 
-*Last updated: November 2025*
+*Last updated: December 2025*
 
 </div>

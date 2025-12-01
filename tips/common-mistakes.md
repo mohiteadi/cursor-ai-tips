@@ -230,6 +230,56 @@ Reference with `@spec` in every new chat.
 
 ---
 
+## 🚨 Advanced Pitfalls (2025 Update)
+
+### The "Lost in the Middle" Problem
+
+**Problem**: Adding entire `@Codebase` for simple tasks causes AI to miss relevant info.
+
+**Why**: LLMs struggle with information in the middle of long contexts. They focus on the beginning and end.
+
+**Solution**:
+```
+❌ @Codebase "fix the CSS bug"
+✅ @Files src/components/Button.tsx "fix the CSS bug"
+
+Only include 2-3 directly relevant files.
+```
+
+### The "Lazy Commit" Trap
+
+**Problem**: Accepting AI changes without review leads to subtle bugs.
+
+**Solution**:
+```
+ALWAYS before accepting:
+1. Ctrl+Shift+D → Open diff view
+2. Review every changed line
+3. Check for:
+   - Removed code that shouldn't be
+   - Hardcoded values
+   - Missing error handling
+   - Type safety issues
+```
+
+### Ignoring .mdc Migration
+
+**Problem**: Sticking to old `.cursorrules` single-file format degrades AI performance.
+
+**Why**: Monolithic rules pollute context for unrelated files.
+
+**Solution**:
+```
+Migrate to .cursor/rules/*.mdc:
+- Split by concern (react.mdc, python.mdc)
+- Use glob patterns for targeting
+- AI loads only relevant rules
+```
+
+[→ See mdc-examples.md](mdc-examples.md)
+
+---
+
 ## 🐛 Debugging Tips
 
 ### Terminal "Debug with AI"

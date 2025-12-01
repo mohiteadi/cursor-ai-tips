@@ -13,10 +13,22 @@ Five frontier models dominate AI coding in late 2025. Each has a distinct "cogni
 | Model | Primary Strength | Context | Speed | Cost | "Vibe" |
 |-------|------------------|---------|-------|------|--------|
 | **Claude 4.5 Opus** | Planning, reliability | 200K | Medium | $$$ | Strict Senior Dev |
-| **GPT-5.1 High Max** | Architecture, balance | 128K | Medium | $$ | Pragmatic Architect |
+| **GPT-5.1 Codex** | Execution, engineering | 128K | Medium | $$ | Pragmatic Doer |
 | **Gemini 3 Pro** | Visuals, massive context | **2M** | Fast | $ | Creative Designer |
 | **Kimi k2 Thinking** | Cost-effective reasoning | 256K | Medium | ¢ | Efficient Researcher |
-| **Grok 4.1** | Personality, real-time data | 256K | Fast | $$ | Witty Collaborator |
+| **Grok 4.1** | Personality, creative | 256K | Fast | $$ | Witty Collaborator |
+
+---
+
+## Benchmark Scores (SWE-bench 2025)
+
+| Model | SWE-bench Score | Cost/Test | Best For |
+|-------|-----------------|-----------|----------|
+| GPT-5.1 Codex | Very High | $0.76 | Implementation |
+| Claude 4.5 Sonnet | Very High | $1.68 | Thinking/Planning |
+| Kimi k2 Thinking | High | $0.60 | Budget tasks |
+
+> **Key Insight**: GPT-5.1 Codex is the "doer" - excels at first-pass working code. Claude 4.5 is the "thinker" - better for complex reasoning and planning.
 
 ---
 
