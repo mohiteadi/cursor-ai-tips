@@ -1,16 +1,22 @@
 # Model Context Protocol (MCP) Integration
 
+[← Back to Main](../README.md)
+
 > MCP is "USB-C for AI" - universal standard for connecting Cursor to databases, APIs, and tools.
 
 ---
 
 ## What is MCP?
 
+If LLMs are the "brain" of the new development stack, MCP is the "nervous system." Introduced by Anthropic and rapidly adopted by Cursor, MCP provides a standardized interface for AI models to connect with external data and tools.
+
 Enables Cursor Agent to:
 - Query databases directly
 - Manage GitHub PRs/Issues
 - Control browsers for testing
 - Access custom APIs
+- Read production error logs (Sentry)
+- Execute autonomous testing loops
 
 ---
 
@@ -152,7 +158,143 @@ Place in project root or `.cursor/`:
 
 ---
 
+---
+
+## Example: Playwright (E2E Testing)
+
+The most transformative MCP application - enables "Self-Healing Tests."
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
+```
+
+### The Autofix Workflow
+
+```
+1. Context Injection: User provides URL (localhost) or test file
+2. Tool Execution: Agent launches browser (headed or headless)
+3. Perception: Agent captures DOM, console errors, screenshots
+4. Remediation: If test fails, Agent analyzes and fixes code
+5. Verification: Agent re-runs test to confirm fix
+```
+
+### Usage Examples
+
+```
+"Run the login E2E test and fix any failures"
+"Navigate to localhost:3000/dashboard and verify all elements load"
+"Take a screenshot of the checkout page and identify CSS issues"
+```
+
+### Why This Matters
+
+E2E tests often break with minor UI changes. With MCP, the Agent can "heal" tests automatically:
+
+```
+Before MCP:
+- Test breaks → Developer manually fixes → Hours lost
+
+After MCP:
+- Test breaks → Agent identifies issue → Agent fixes → Minutes
+```
+
+---
+
+## Example: Sentry (Production Debugging)
+
+Connect to production error logs for faster debugging.
+
+```json
+{
+  "mcpServers": {
+    "sentry": {
+      "command": "npx",
+      "args": ["-y", "@sentry/mcp-server"],
+      "env": {
+        "SENTRY_AUTH_TOKEN": "${env:SENTRY_AUTH_TOKEN}",
+        "SENTRY_ORG": "your-org"
+      }
+    }
+  }
+}
+```
+
+### Production-to-Development Loop
+
+```
+Instead of:
+- User reports bug
+- Developer searches Sentry
+- Copy-pastes stack trace
+- Debugs manually
+
+With MCP:
+- "Fix the error from Sentry issue #12345"
+- Agent queries Sentry directly
+- Gets full stack trace, correlation ID, variable state
+- Proposes fix in local code
+```
+
+---
+
+## Headed vs Headless Browser
+
+### Headed Mode (Visible)
+
+```
+Pros:
+- Watch Agent "click around"
+- Trust verification
+- Debug visual issues
+
+Cons:
+- Slower
+- DISPLAY issues in WSL2/Linux
+- More resource intensive
+```
+
+### Headless Mode (Default)
+
+```
+Pros:
+- Faster
+- Works in CI/CD
+- No GUI dependencies
+
+Cons:
+- Can't watch execution
+- May miss visual regressions
+```
+
+### Forcing Headed Mode
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--headed"]
+    }
+  }
+}
+```
+
+---
+
 ## References
 
 - [Cursor MCP Docs](https://cursor.com/docs/cookbook/building-mcp-server)
 - [GitHub MCP Server](https://github.com/github/github-mcp-server)
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp)
+- [Sentry MCP Guide](https://skywork.ai/skypage/en/sentry-mcp-server-ai-debugging/)
+
+---
+
+[← Back to Main](../README.md)

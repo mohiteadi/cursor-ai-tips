@@ -329,6 +329,20 @@ Create `mcp.json` in project root:
 | `server-postgres` | Query database schema |
 | `github-mcp-server` | Manage PRs/Issues |
 | `server-puppeteer` | Browser automation |
+| `@playwright/mcp` | E2E testing, self-healing tests |
+| `@sentry/mcp-server` | Production error debugging |
+
+### Playwright Integration (Self-Healing Tests)
+
+The most transformative MCP application:
+
+```
+1. Agent runs E2E test
+2. Test fails (selector changed)
+3. Agent analyzes DOM
+4. Agent fixes test automatically
+5. Agent verifies fix
+```
 
 [→ Full MCP Guide](tips/mcp-integration.md)
 
@@ -443,7 +457,37 @@ Tips from r/cursor power users:
 
 **Verdict**: Cursor for **control and precision**. Antigravity for **full automation experiments**. Windsurf for **auto-context**. Copilot for **enterprise compliance**.
 
-[→ Full Comparison](tips/vs-competitors.md)
+[→ Full Comparison](tips/vs-competitors.md) | [→ Cursor vs Windsurf Deep Dive](tips/cursor-vs-windsurf.md)
+
+---
+
+## 💡 Vibe Coding
+
+The new development paradigm where domain experts focus on intent while AI implements.
+
+### What is Vibe Coding?
+
+```
+Traditional: Developer writes code → Tests → Iterates
+Vibe Coding: Developer describes intent → AI implements → Developer reviews
+```
+
+### Success Stories
+
+- **Tradofire**: Solo developer shipped complex crypto trading app
+- **Enterprise ERP**: Full-scale systems built in weeks using TaskMaster workflow
+
+### The TaskMaster Workflow
+
+```
+1. Generate detailed PRD (Product Requirement Document)
+2. Feed PRD to task management system
+3. Agent parses PRD into individual tickets
+4. Execute tickets one by one
+5. Human review at each milestone
+```
+
+[→ Full Vibe Coding Guide](tips/vibe-coding-guide.md)
 
 ---
 

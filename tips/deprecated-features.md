@@ -1,5 +1,7 @@
 # Deprecated Features in Cursor 2.0/2.1
 
+[← Back to Main](../README.md)
+
 > ⚠️ **Warning**: This guide documents features removed or changed in Cursor 2.0+.
 
 ---
@@ -7,6 +9,8 @@
 ## Overview
 
 Cursor 2.0/2.1 shifted from manual context management to **autonomous agent-based workflows**, deprecating several power-user features.
+
+The Cursor team's philosophy for 2.0 is that the Agent should be smart enough to "self-gather" context, rendering manual tagging mechanisms obsolete. This philosophical stance led to significant community friction.
 
 ---
 
@@ -109,8 +113,56 @@ Buy 500 fast request credits.
 
 ---
 
+---
+
+## Community Response
+
+The response to these deprecations was significant:
+
+### Common Complaints
+
+```
+"If a feature wasn't working, the solution should be 
+to fix it, not remove it."
+
+"The replacement workflows are strictly 'more monkey work' 
+for the operator."
+
+"@Project Symbols was my most used feature by far - 
+removed without a migration plan."
+```
+
+### UI Changes
+
+The 2.0 update also introduced:
+- Mandatory right-side Primary Side Bar (vs left-aligned standard)
+- Removed visual indicators for "Thinking Models" (o1) or MAX mode
+- "Past Chats" functionality became unreliable
+
+---
+
+## Stability Issues (2.0 Launch)
+
+The complexity of the Agentic architecture introduced new bugs:
+
+```
+Reported Issues:
+- Cursor rules didn't work on Windows for months
+- Usage analytics in dashboard broken for weeks
+- Past Chats feature unreliable or missing
+```
+
+These were eventually resolved, but the rocky launch damaged trust among power users.
+
+---
+
 ## References
 
 - [Forum: 2.0 functionality changes](https://forum.cursor.com/t/2-0-has-lost-a-lot-of-functionality-i-can-no-longer-use-cursor/139203)
+- [Forum: Fixing basic features](https://forum.cursor.com/t/fixing-basic-features-before-adding-new-ones/141183)
 - [Reddit: Reapply removal](https://www.reddit.com/r/cursor/comments/1mbp3ii/what_happened_to_reapply_why_was_that_removed/)
 - [Reddit: Fast Requests deprecated](https://www.reddit.com/r/cursor/comments/1iyza3h/adding_fast_requests_has_been_deprecated_is_it/)
+
+---
+
+[← Back to Main](../README.md)
