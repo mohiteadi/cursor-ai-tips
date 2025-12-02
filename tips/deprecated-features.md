@@ -117,7 +117,7 @@ Buy 500 fast request credits.
 
 ## Community Response
 
-The response to these deprecations was significant:
+The response to these deprecations was visceral and significant:
 
 ### Common Complaints
 
@@ -132,12 +132,46 @@ for the operator."
 removed without a migration plan."
 ```
 
+### Detailed Impact Analysis
+
+| Deprecated Feature | Original Function | Impact on Workflow | User Sentiment |
+|-------------------|-------------------|-------------------|----------------|
+| `@Definitions` | Explicitly injected symbol definitions | Loss of precision; can't force AI to focus on specific interfaces | Negative: "Loss of functionality and control" |
+| `@Web` | Forced live web search | Users unsure if AI is hallucinating or retrieving live data | Mixed: Less typing, but lost guarantee |
+| `@Project Symbols` | Referenced project-wide symbols in chat | Significant regression for large monorepos | Critical: "Most used feature by far" |
+| Context Menu Items | Quick actions like @Link, @Recent Changes | Tasks that took two clicks now require full sentences | Negative: "Monkey work for the operator" |
+| Notepads | Persistent context across chats | Loss of user-level memory distinct from project rules | Highly Negative: Used for prompt libraries |
+
+### The @Project Symbols Crisis
+
+For developers in complex enterprise environments:
+
+```
+Before:
+- Explicitly point AI to specific module
+- Instant, precise context injection
+
+After:
+- Wait for Agent to "discover" the module
+- Often slower and less reliable
+- Semantic search may miss renamed code
+```
+
 ### UI Changes
 
-The 2.0 update also introduced:
-- Mandatory right-side Primary Side Bar (vs left-aligned standard)
+The 2.0 update also introduced controversial UI changes:
+
+```
+Mandatory Changes:
+- Right-side Primary Side Bar (vs left-aligned VS Code standard)
 - Removed visual indicators for "Thinking Models" (o1) or MAX mode
-- "Past Chats" functionality became unreliable
+- "Past Chats" functionality became unreliable or missing
+
+User Reactions:
+- "Prioritizing aesthetic minimalism over functional clarity"
+- "Where is X?" threads flooded the forum
+- Power users alienated by hidden settings
+```
 
 ---
 

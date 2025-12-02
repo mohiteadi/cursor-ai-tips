@@ -35,31 +35,42 @@ Both Cursor and Windsurf are VS Code forks with deep AI integration. Here's how 
 
 ## The "Initiative" Gap
 
-A critical differentiator is how proactive each AI is.
+A critical differentiator is how proactive each AI is. This is the most important difference to understand.
 
 ### Windsurf Cascade
 
 ```
-More Proactive:
+More Proactive (Higher Initiative):
 - Runs shell commands without asking
 - Installs dependencies automatically
 - Makes decisions independently
 - Feels "magical" to new users
+- Often executes rm -rf without confirmation
 ```
 
 ### Cursor Agent
 
 ```
-More Cautious:
+More Cautious (Lower Initiative):
 - Asks permission for shell commands
 - Requires explicit approval for destructive actions
 - Developer reviews before execution
 - Safer for enterprise environments
+- Default: "Ask for permission" model
 ```
 
-**Choose based on your comfort level**:
+### The Verdict
+
+```
+"Windsurf feels magical to new users, 
+but terrifying to senior engineers who want 
+to review every shell command before it executes rm -rf."
+```
+
+**Choose based on your experience level**:
 - New developers → Windsurf's initiative feels helpful
-- Senior engineers → Cursor's control prevents surprises
+- Senior engineers → Cursor's control prevents disasters
+- Enterprise environments → Cursor's explicit approval is required
 
 ---
 
@@ -115,12 +126,13 @@ Model Arbitrage:
 ```
 Limited Options:
 ├── Claude 3.5 Sonnet (primary)
-├── SWE-1.5 (proprietary)
+├── SWE-1.5 (proprietary Codeium model)
 └── Less flexibility
 
 Locked Ecosystem:
 - Cannot easily add new models
 - Less cost optimization options
+- Primarily relies on Claude and proprietary models
 ```
 
 ---

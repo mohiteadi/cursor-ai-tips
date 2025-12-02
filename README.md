@@ -10,7 +10,7 @@
 
 *Keyboard shortcuts, Composer workflows, .cursorrules examples, and Reddit community wisdom*
 
-[Shortcuts](#-keyboard-shortcuts) • [Composer](#-composer-mode) • [Context](#-context-management) • [Rules](#-cursorrules) • [Models](#-model-selection) • [MCP](#-mcp-integration) • [Troubleshooting](#-troubleshooting) • [Reddit Tips](#-reddit-community-wisdom)
+[Shortcuts](#-keyboard-shortcuts) • [Composer](#-composer-mode) • [Context](#-context-management) • [Rules](#-cursorrules) • [Models](#-model-selection) • [MCP](#-mcp-integration) • [Security](#-security-concerns) • [Troubleshooting](#-troubleshooting) • [Reddit Tips](#-reddit-community-wisdom)
 
 </div>
 
@@ -106,7 +106,7 @@ Cmd + I  → "Refactor to use Axios instead of Fetch"
 
 > **Pro Tip**: Use `Cmd + K` for local scope, `Cmd + I` for global scope. Don't use `Cmd + K` for multi-file tasks.
 
-[→ Full Shortcuts Guide](tips/keyboard-shortcuts.md)
+[→ Full Shortcuts Guide](tips/keyboard-shortcuts.md) | [→ Development Workflows](tips/workflows.md)
 
 ---
 
@@ -179,7 +179,7 @@ Create a `current_task_spec` Notepad with:
 
 Reference with `@current_task_spec` in every new chat.
 
-[→ Full Context Guide](tips/context-management.md)
+[→ Full Context Guide](tips/context-management.md) | [→ Security Best Practices](tips/security-concerns.md)
 
 ---
 
@@ -348,6 +348,48 @@ The most transformative MCP application:
 
 ---
 
+## 🔒 Security Concerns
+
+> ⚠️ As AI agents gain autonomy, security risks increase exponentially.
+
+### The Agentic Attack Surface
+
+The ability of an Agent to execute shell commands and connect to the internet (via MCP) introduces new risks:
+
+| Risk | Description |
+|------|-------------|
+| **Prompt Injection** | Malicious READMEs or docs that trick the AI |
+| **Credential Exfiltration** | Agent accessing environment variables |
+| **MCP Exploits** | Malicious MCP servers hijacking machines |
+| **YOLO Mode Dangers** | Auto-execution of destructive commands |
+
+### Security Best Practices
+
+```
+✅ Review all terminal commands before approval
+✅ Use read-only MCP configurations
+✅ Audit .mdc files in cloned repositories
+✅ Never approve `env` or `printenv` commands
+✅ Set strict YOLO mode restrictions
+❌ Don't trust arbitrary @Docs sources
+❌ Don't enable unrestricted shell access
+```
+
+### The "Black Box" Risk
+
+```
+⚠️ "Vibe Coding" can create unmaintainable code
+
+If you don't understand the AI-generated code:
+- You can't debug it when AI fails
+- It becomes "Legacy Code" immediately
+- Security vulnerabilities go unnoticed
+```
+
+[→ Full Security Guide](tips/security-concerns.md)
+
+---
+
 ## 🔧 Troubleshooting
 
 ### Quick Fixes
@@ -444,7 +486,7 @@ Tips from r/cursor power users:
 | **Multi-File** | Composer ⭐ | Agents | Cascade | Limited |
 | **Model Choice** | All models | Gemini only | Proprietary | OpenAI only |
 | **Special** | Plan Mode, Instant Grep | Mission Control, Artifacts | Auto-context | Enterprise SSO |
-| **Price** | $20/mo | Free Preview | $15/mo | $10/mo |
+| **Price** | $20/mo (500 fast/mo) | Free Preview | $15/mo | $10/mo |
 
 ### Cursor vs Google Antigravity
 
@@ -455,7 +497,19 @@ Tips from r/cursor power users:
 | **Best For** | Precision, existing codebases | Greenfield, rapid prototyping |
 | **Lock-in** | Model agnostic | Google ecosystem |
 
-**Verdict**: Cursor for **control and precision**. Antigravity for **full automation experiments**. Windsurf for **auto-context**. Copilot for **enterprise compliance**.
+### The "Initiative Gap"
+
+A critical differentiator between Cursor and Windsurf:
+
+| Aspect | Cursor | Windsurf |
+|--------|--------|----------|
+| **Autonomy** | Asks permission by default | Acts proactively |
+| **Shell Commands** | Requires approval | Often auto-executes |
+| **User Feeling** | Controlled, predictable | "Magical" but scary |
+
+> "Windsurf feels magical to new users, but terrifying to senior engineers who want to review every shell command."
+
+**Verdict**: Cursor for **control and precision**. Antigravity for **full automation experiments**. Windsurf for **auto-context** (but watch the autonomy). Copilot for **enterprise compliance**.
 
 [→ Full Comparison](tips/vs-competitors.md) | [→ Cursor vs Windsurf Deep Dive](tips/cursor-vs-windsurf.md)
 

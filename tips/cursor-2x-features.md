@@ -8,6 +8,35 @@ Cursor 2.0 (October 2025) and 2.1 (November 2025) represent a paradigm shift fro
 
 ---
 
+## LSP Performance Improvements
+
+The 2.0 release delivered significant performance improvements for Language Server Protocols.
+
+### Dynamic Memory Management
+
+```
+New in 2.0:
+- Dynamic memory limits based on available RAM
+- Reduced latency for "Go to Definition"
+- Faster autocomplete in large projects
+- Addressed "heaviness" of Electron-based editors
+```
+
+### Impact
+
+```
+Before:
+- Large TypeScript projects: 3-5s for Go to Definition
+- Python LSP: Memory issues in big repos
+
+After:
+- Sub-second definition lookups
+- Stable memory usage
+- Smoother editing experience
+```
+
+---
+
 ## Plan Mode (2.1)
 
 The biggest innovation - forces strategic thinking before coding.

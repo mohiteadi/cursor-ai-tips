@@ -141,6 +141,54 @@ Wait for approval before Task 2."
 
 ---
 
+## ⚠️ Critical Risks of Vibe Coding
+
+### The "Black Box Codebase" - MAJOR RISK
+
+```
+⚠️ THE BIGGEST RISK OF VIBE CODING
+
+The rise of "Vibe Coding" risks creating software that is "write-only."
+
+If you don't understand the code:
+- You can't debug when AI fails
+- You can't maintain it when requirements change
+- Security vulnerabilities go unnoticed
+- It becomes "Legacy Code" immediately
+```
+
+### The "Legacy Code of the Future"
+
+```
+We may see a future where "Legacy Code" refers not to COBOL,
+but to "Early-2025 Cursor-Generated React Apps" 
+that no human knows how to patch.
+
+If AI models change behavior, or a subtle bug emerges 
+that the AI cannot "autofix," these projects become unmaintainable.
+```
+
+### Mitigation Strategies
+
+```
+1. Always Review Generated Code
+   - Even superficially
+   - Understand the general structure
+   - Know where key logic lives
+
+2. Maintain Mental Model
+   - Draw architecture diagrams
+   - Document key decisions
+   - Know the data flow
+
+3. Test Coverage
+   - Write tests (or have AI write them)
+   - Tests = documentation of intent
+   - Catches AI regressions
+```
+
+---
+
 ## Vibe Coding Anti-Patterns
 
 ### The "Big Ball of Mud"
@@ -153,19 +201,6 @@ Solution:
 - Use .mdc rules for architecture
 - Enforce separation of concerns
 - Review generated code, not just behavior
-```
-
-### The "Black Box Codebase"
-
-```
-Problem:
-Domain expert builds app but doesn't understand the code.
-When AI can't fix a bug, they're stuck.
-
-Solution:
-- Review each change, even superficially
-- Keep documentation updated
-- Maintain mental model of architecture
 ```
 
 ### The "Infinite Loop"

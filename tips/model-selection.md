@@ -32,21 +32,25 @@ Five frontier models dominate AI coding in late 2025. Each has a distinct "cogni
 
 ---
 
-## Claude 4.5 Opus
+## Claude 3.5 Sonnet
 
-**The Architect's Choice**
+**The Gold Standard for Agentic Coding**
+
+Claude 3.5 Sonnet has established itself as the benchmark for coding tasks within Cursor.
 
 ### Strengths
 
 - Exceptional **instruction following**
 - "Don't code yet, just analyze" → Actually obeys
-- Long-lived backend system design
-- Cross-service coordination
+- Superior adherence to negative constraints
+- Handles large context windows with less "forgetfulness"
+- More concise than GPT-4o (focuses on code, not conversation)
+- Best model for Cursor's Background Agents
 
 ### Weaknesses
 
-- Expensive ($3/M input, $15/M output)
-- Can be overly cautious
+- More expensive than budget alternatives
+- Can be overly cautious on edge cases
 
 ### Best For
 
@@ -55,6 +59,7 @@ Five frontier models dominate AI coding in late 2025. Each has a distinct "cogni
 ✅ Planning phase of large refactors
 ✅ Backend service design
 ✅ Code review and analysis
+✅ Agentic workflows (Composer/Agent Mode)
 ```
 
 ### Prompting Tips
@@ -64,6 +69,26 @@ Claude excels when given constraints:
 "Analyze the authentication flow.
 Do NOT write code yet.
 Create a detailed plan with edge cases."
+```
+
+---
+
+## Claude 4.5 Opus
+
+**The Deep Thinker**
+
+### Strengths
+
+- Massive context window (up to 200k-500k tokens)
+- Exceptional for long-term memory tasks
+- Can hold entire mid-sized repositories in working memory
+
+### Best For
+
+```
+✅ Complex debugging across many files
+✅ Recalling patterns from old code
+✅ Deep architectural reasoning
 ```
 
 ---
@@ -104,9 +129,39 @@ Finally, implement the chosen approach."
 
 ---
 
-## Gemini 3 Pro
+## Gemini 2.0 Flash / Gemini 3 Pro
 
-**The Visual Giant**
+**The Heavy Context Specialists**
+
+### Gemini 2.0 Flash - The Reader
+
+Best for massive context operations:
+
+```
+Context Window: 1-2 MILLION tokens
+Best For:
+✅ Analyzing massive diffs
+✅ Processing MP3 files for transcription
+✅ "Long context" debugging across dozens of files
+✅ Massive error dump analysis
+```
+
+### Agentic Limitations
+
+```
+⚠️ Gemini struggles as an "actor" in Agent Mode
+
+Good at:
+- Reading and analyzing code
+- Generating code in Composer
+
+Struggles with:
+- Tool-calling stability
+- Executing terminal commands
+- Correctly parsing file paths
+```
+
+### Gemini 3 Pro - The Visual Giant
 
 ### Strengths
 
@@ -120,6 +175,7 @@ Finally, implement the chosen approach."
 - Struggles with strict instruction following
 - May "go rogue" and start coding when told to wait
 - Less reliable for precise backend logic
+- **Not recommended for Agent Mode execution**
 
 ### Best For
 
@@ -127,7 +183,7 @@ Finally, implement the chosen approach."
 ✅ Screenshot → Frontend code
 ✅ Analyzing massive codebases (>1M tokens)
 ✅ Creative/visual tasks
-✅ "Voxel art eagle riding a tricycle" type prompts
+✅ Heavy context reading tasks
 ```
 
 ### Prompting Tips
@@ -139,15 +195,18 @@ Implement this UI using React and Tailwind.
 Match the colors and spacing exactly."
 ```
 
-### Context Window Usage
+### When to Use Gemini
 
 ```
-Gemini 3 Pro can hold:
-- Entire large monorepos
-- Full documentation sets
-- Complete git history + current code
+Use Gemini for:
+- Reading and understanding large codebases
+- Visual/multimodal tasks
+- Massive context analysis
 
-Use @Codebase liberally with Gemini.
+Avoid Gemini for:
+- Agent Mode autonomous execution
+- Complex tool-calling workflows
+- Precise terminal command execution
 ```
 
 ---
@@ -193,6 +252,24 @@ Via OpenRouter:
 3. Select "kimi-k2-thinking" from models
 ```
 
+### Performance Reality Check
+
+```
+⚠️ Important Caveat:
+
+Direct comparisons show Kimi k2 is:
+- Significantly slower than Claude Sonnet
+- More bug-prone in Agent Mode
+- Less reliable for complex task completion
+
+In Agent Mode tests:
+- Kimi k2: Struggled with extreme slowness, failed tasks
+- Claude Sonnet: Completed same tasks in minutes
+
+Trade-off: Acceptable code at fraction of cost,
+but higher latency and "management overhead"
+```
+
 ### Prompting "Thinking" Models
 
 **Don't over-prompt!** These models reason better with goals, not steps:
@@ -219,7 +296,19 @@ Then output the implementation."
 ### Modes
 
 - **Thinking** (quasarflux): Deep reasoning, internal tokens
-- **Fast** (tensor): Speed-optimized, 2M context
+- **Fast** (tensor): Speed-optimized, retuned for tool usage and low-latency inference
+
+### Grok 4.1 Fast
+
+The "Fast" variant is retuned specifically for tool usage:
+
+```
+Strengths:
+✅ Excels at autonomously picking tools
+✅ Outperforms GPT-5 and Claude in tool-calling scenarios
+✅ Low-latency inference
+✅ Great for iterative Agent Mode loops
+```
 
 ### Strengths
 
@@ -233,6 +322,20 @@ Then output the implementation."
 - Less backend-specialized than Claude
 - X integration not useful for all projects
 
+### ⚠️ Critical Warning
+
+```
+Grok 4.1 is "way too eager to make changes"
+
+Reported issues:
+- Hallucinating edits
+- Overwriting functional code without verification
+- Acting before thinking
+
+Solution: Use with strict "Plan Mode" constraints
+Always review before accepting changes
+```
+
 ### Best For
 
 ```
@@ -240,6 +343,14 @@ Then output the implementation."
 ✅ User-facing copy and error messages
 ✅ Sentiment analysis applications
 ✅ Apps integrating social media data
+✅ Fast iterative loops (with supervision)
+```
+
+### Integration Note
+
+```
+Native integration was delayed in late 2025.
+Workaround: Use OpenRouter API key.
 ```
 
 ### Prompting Tips
@@ -249,6 +360,10 @@ Leverage Grok's personality:
 "Write error messages for this login flow.
 They should feel empathetic and helpful,
 not robotic. Match the brand's friendly tone."
+
+For Agent Mode, add constraints:
+"STOP and create a plan before making changes.
+Do NOT edit any files until I approve the plan."
 ```
 
 ---
